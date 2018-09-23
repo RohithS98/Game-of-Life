@@ -67,7 +67,7 @@ def test(ans,exp):
 
 life = Board(10,10)
 #life.setBoard([[0,0,0,0,0],[0,0,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[0,0,0,0,0]])
-for i in range(30):
+while 1:
     clear()
     print(life)
     life.update()
