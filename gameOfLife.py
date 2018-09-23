@@ -10,7 +10,7 @@ def clear():
 
 class Board:
 
-    def __init__(self, thresh = 95, width = 70, height = 20):
+    def __init__(self, width = 70, height = 20, thresh = 65):
         self.threshold = thresh
         self.width = width
         self.height = height
@@ -21,12 +21,17 @@ class Board:
         st = ''
         for i in range(self.height):
             for j in range(self.width):
-                st += '#' if self.gameBoard[i][j] else ' '
+                st += '#' if self.gameBoard[i][j] else '_'
             st += '\n'
         return st
 
     def update(self):
         self.gameBoard = Board.nextState(self.gameBoard)
+
+    def setBoard(self,board):
+        self.gameBoard = board
+        self.width = len(board[0])
+        self.height = len(board)
 
     @staticmethod
     def neighbourCount(board,r,c):
@@ -60,8 +65,9 @@ def test(ans,exp):
     return True
 
 
-life = Board()
-for i in range(2):
+life = Board(10,10)
+#life.setBoard([[0,0,0,0,0],[0,0,0,0,0],[0,1,1,1,0],[0,0,0,0,0],[0,0,0,0,0]])
+for i in range(30):
     clear()
     print(life)
     life.update()
