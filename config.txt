@@ -1,0 +1,4 @@
+#loadfromfile pattern1.txt
+width 100
+height 50
+threshold 80
